@@ -3,19 +3,26 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT" />
-        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/example" />
+            <option value="$PROJECT_DIR$/example/app" />
+            <option value="$PROJECT_DIR$/example/app-shell" />
+            <option value="$PROJECT_DIR$/example/app-shell/shell-base" />
+            <option value="$PROJECT_DIR$/example/app-shell/shell-webview" />
+            <option value="$PROJECT_DIR$/example/base" />
+            <option value="$PROJECT_DIR$/example/travel" />
+            <option value="$PROJECT_DIR$/example/waimai" />
+            <option value="$PROJECT_DIR$/example/webview" />
             <option value="$PROJECT_DIR$/grouter" />
             <option value="$PROJECT_DIR$/grouter-androidx" />
             <option value="$PROJECT_DIR$/grouter-annotation" />
             <option value="$PROJECT_DIR$/grouter-compiler" />
             <option value="$PROJECT_DIR$/grouter-gradle-plugin" />
+            <option value="$PROJECT_DIR$/grouter-kotlinextensions" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

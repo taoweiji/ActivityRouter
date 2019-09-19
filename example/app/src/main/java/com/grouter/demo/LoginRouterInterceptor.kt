@@ -32,13 +32,13 @@ class LoginRouterInterceptor : GRouterInterceptor() {
     }
 
     override fun process(request: ActivityRequest): Boolean {
-        if (loginUser == null && !visitorAccess.contains(request.activityClass)) {
-            Toast.makeText(request.context, "请登录", Toast.LENGTH_SHORT).show()
-            request.onContinue(LoginActivity::class.java)
-            GActivityCenter.LoginActivity().start(request.context)
-            request.onInterrupt(Exception("无访问权限"))
-            return true
-        }
+//        if (loginUser == null && !visitorAccess.contains(request.activityClass)) {
+//            Toast.makeText(request.context, "请登录", Toast.LENGTH_SHORT).show()
+//            request.onContinue(LoginActivity::class.java)
+//            GActivityCenter.LoginActivity().start(request.context)
+//            request.onInterrupt(Exception("无访问权限"))
+//            return true
+//        }
         return super.process(request)
     }
 

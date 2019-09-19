@@ -16,6 +16,8 @@ public class GRouterInitializer extends GRouter {
     // app
     // 
     // 
+    // 
+    // 
     activityMap.put("cinema", "com.grouter.demo.activity.CinemaActivity");
     activityMap.put("cinema/detail", "com.grouter.demo.activity.CinemaDetailActivity");
     activityMap.put("moment", "com.grouter.demo.activity.MomentActivity");

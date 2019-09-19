@@ -23,6 +23,24 @@
 			"exported":true,
 			"module":"",
 			"name":"",
+			"params":[],
+			"path":"",
+			"type":"com.grouter.demo.activity.OverridePendingTransitionActivity"
+		},
+		{
+			"description":"",
+			"exported":true,
+			"module":"",
+			"name":"",
+			"params":[],
+			"path":"",
+			"type":"com.grouter.demo.activity.OverridePendingTransitionTargetActivity"
+		},
+		{
+			"description":"",
+			"exported":true,
+			"module":"",
+			"name":"",
 			"params":[
 				{
 					"name":"cinemaId",

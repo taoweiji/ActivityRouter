@@ -103,7 +103,7 @@ public abstract class GRouter {
         RouterInject.inject(fragment);
     }
 
-    private static Serialization serialization;
+    public static Serialization serialization;
 
     /**
      * 设置JSON序列化工具

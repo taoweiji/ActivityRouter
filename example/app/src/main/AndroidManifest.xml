@@ -33,6 +33,8 @@
         <activity android:name=".activity.NetworkPingActivity" />
         <activity android:name=".activity.UserActivity" />
         <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.OverridePendingTransitionActivity" />
+        <activity android:name=".activity.OverridePendingTransitionTargetActivity" />
     </application>
 
 </manifest>

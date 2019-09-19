@@ -2,12 +2,27 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/example/app/app.iml" filepath="$PROJECT_DIR$/example/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/app-shell/app-shell.iml" filepath="$PROJECT_DIR$/example/app-shell/app-shell.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/base/base.iml" filepath="$PROJECT_DIR$/example/base/base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/grouter/grouter.iml" filepath="$PROJECT_DIR$/grouter/grouter.iml" />
       <module fileurl="file://$PROJECT_DIR$/grouter-android.iml" filepath="$PROJECT_DIR$/grouter-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grouter/grouter-android-grouter.iml" filepath="$PROJECT_DIR$/grouter/grouter-android-grouter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grouter-androidx/grouter-android-grouter-androidx.iml" filepath="$PROJECT_DIR$/grouter-androidx/grouter-android-grouter-androidx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grouter-annotation/grouter-android-grouter-annotation.iml" filepath="$PROJECT_DIR$/grouter-annotation/grouter-android-grouter-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grouter-compiler/grouter-android-grouter-compiler.iml" filepath="$PROJECT_DIR$/grouter-compiler/grouter-android-grouter-compiler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grouter-gradle-plugin/grouter-android-grouter-gradle-plugin.iml" filepath="$PROJECT_DIR$/grouter-gradle-plugin/grouter-android-grouter-gradle-plugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/grouter-androidx/grouter-androidx.iml" filepath="$PROJECT_DIR$/grouter-androidx/grouter-androidx.iml" />
       <module fileurl="file://$PROJECT_DIR$/grouter-annotation/grouter-annotation.iml" filepath="$PROJECT_DIR$/grouter-annotation/grouter-annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/grouter-compiler/grouter-compiler.iml" filepath="$PROJECT_DIR$/grouter-compiler/grouter-compiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/grouter-gradle-plugin/grouter-gradle-plugin.iml" filepath="$PROJECT_DIR$/grouter-gradle-plugin/grouter-gradle-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grouter-kotlinextensions/grouter-kotlinextensions.iml" filepath="$PROJECT_DIR$/grouter-kotlinextensions/grouter-kotlinextensions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/app-shell/shell-base/shell-base.iml" filepath="$PROJECT_DIR$/example/app-shell/shell-base/shell-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/app-shell/shell-webview/shell-webview.iml" filepath="$PROJECT_DIR$/example/app-shell/shell-webview/shell-webview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/travel/travel.iml" filepath="$PROJECT_DIR$/example/travel/travel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/waimai/waimai.iml" filepath="$PROJECT_DIR$/example/waimai/waimai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/webview/webview.iml" filepath="$PROJECT_DIR$/example/webview/webview.iml" />
     </modules>
   </component>
 </project>

@@ -13,6 +13,14 @@ public class GActivityCenter {
     return new BuilderSet.LoginActivityHelper();
   }
 
+  public static BuilderSet.OverridePendingTransitionActivityHelper OverridePendingTransitionActivity() {
+    return new BuilderSet.OverridePendingTransitionActivityHelper();
+  }
+
+  public static BuilderSet.OverridePendingTransitionTargetActivityHelper OverridePendingTransitionTargetActivity() {
+    return new BuilderSet.OverridePendingTransitionTargetActivityHelper();
+  }
+
   public static BuilderSet.CinemaActivityHelper CinemaActivity() {
     return new BuilderSet.CinemaActivityHelper();
   }
@@ -91,6 +99,18 @@ public class GActivityCenter {
     public static class LoginActivityHelper extends GActivityBuilder {
       LoginActivityHelper() {
         super("com.grouter.demo.activity.LoginActivity");
+      }
+    }
+
+    public static class OverridePendingTransitionActivityHelper extends GActivityBuilder {
+      OverridePendingTransitionActivityHelper() {
+        super("com.grouter.demo.activity.OverridePendingTransitionActivity");
+      }
+    }
+
+    public static class OverridePendingTransitionTargetActivityHelper extends GActivityBuilder {
+      OverridePendingTransitionTargetActivityHelper() {
+        super("com.grouter.demo.activity.OverridePendingTransitionTargetActivity");
       }
     }
 

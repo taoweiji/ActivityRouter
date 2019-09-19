@@ -19,9 +19,10 @@ class MainActivity : AppCompatActivity() {
 //        GRouter.getInstance().openAppCheck(this)
         setContentView(R.layout.activity_main)
         button1.setOnClickListener {
+            GActivityCenter.OverridePendingTransitionActivity().start(this)
             //            GActivityCenter.UserActivity().users(ArrayList<User>()).start(this)
 
-            GActivityCenter.WebViewActivity().start(this)
+//            GActivityCenter.WebViewActivity().asBottomIn().start(this)
 
             // 二级跳转，先跳转到SettingsActivity，然后跳转到AboutUsActivity
 //            GActivityCenter.SettingsActivity().nextNav(GActivityCenter.AboutUsActivity()).start(this)
@@ -73,15 +74,15 @@ class MainActivity : AppCompatActivity() {
 
 //        val response = GRouter.getInstance().getTask("getUser").put("uid",1).put("name","Wiki").execute()
 //        val response = GRouter.getInstance().getTask("grouter://task/getUser?uid=1&name=Wiki").execute()
-        var response = GTaskCenter.GetUserTask().uid(1).name("Wiki").execute()
+//        var response = GTaskCenter.GetUserTask().uid(1).name("Wiki").execute()
+//
+//        class UserCopy :Serializable{
+//            var uid: Int = 0
+//            var name: String = ""
+//        }
 
-        class UserCopy :Serializable{
-            var uid: Int = 0
-            var name: String = ""
-        }
-
-        val userCpoy = response.value(UserCopy::class.java)
-        Log.e("userCpoy", userCpoy!!.name)
+//        val userCpoy = response.value(UserCopy::class.java)
+//        Log.e("userCpoy", userCpoy!!.name)
 
         GRouter.getInstance().startActivity(this,"www.baidu.com")
 //

@@ -78,7 +78,7 @@ public abstract class GRouterTask {
 
         @SuppressWarnings("unchecked")
         @Nullable
-        public <T> T value(Class<T> clazz) {
+        public <T extends Serializable> T value(Class<T> clazz) {
             if (value == null) {
                 return null;
             }
@@ -101,7 +101,7 @@ public abstract class GRouterTask {
 
         @Nullable
         @SuppressWarnings("unchecked")
-        public <T> List<T> list(Class<T> clazz) {
+        public <T extends Serializable> List<T> list(Class<T> clazz) {
             if (value == null) {
                 return null;
             }

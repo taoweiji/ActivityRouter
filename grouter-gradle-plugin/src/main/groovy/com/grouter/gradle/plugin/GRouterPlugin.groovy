@@ -185,10 +185,13 @@ class GRouterPlugin implements Plugin<Project> {
             println("开发模式，不自动增加依赖")
             return
         }
-        def version = "0.2.0"
+        def version = "1.1.0"
         project.dependencies {
             if (GROUTER_ANDROIDX) {
                 api "com.grouter:grouter-androidx:$version"
+//                if (kotlinMode) {
+//                    api "com.grouter:grouter-androidx-kotlinextensions:$version"
+//                }
 //                project.println("GRouter add api 'com.grouter:grouter-androidx:$version'")
             } else {
                 api "com.grouter:grouter:$version"
@@ -197,11 +200,11 @@ class GRouterPlugin implements Plugin<Project> {
             if (kotlinMode) {
                 // 增加构造器
                 kapt "com.grouter:grouter-compiler:$version"
-                project.println("GRouter add kapt 'com.grouter:grouter-compiler:$version'")
+//                project.println("GRouter add kapt 'com.grouter:grouter-compiler:$version'")
             } else {
                 // Java 项目
                 annotationProcessor "com.grouter:grouter-compiler:$version"
-                project.println("GRouter add annotationProcessor 'com.grouter:grouter-compiler:$version'")
+//                project.println("GRouter add annotationProcessor 'com.grouter:grouter-compiler:$version'")
             }
         }
     }

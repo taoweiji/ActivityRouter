@@ -9,6 +9,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 
+import com.grouter.core.R;
+
 import java.io.NotSerializableException;
 import java.io.Serializable;
 import java.util.List;
@@ -115,7 +117,7 @@ public class GActivityBuilder implements Parcelable {
             LoggerUtils.handleException(LoggerUtils.getSerializationException());
             return this;
         }
-        if (value == null){
+        if (value == null) {
             return this;
         }
         if (!Serializable.class.isAssignableFrom(value.getClass())) {
@@ -137,7 +139,8 @@ public class GActivityBuilder implements Parcelable {
         extras.putString(key, GRouter.getSerialization().serialize(value));
         return this;
     }
-    public GActivityBuilder setData(Uri data){
+
+    public GActivityBuilder setData(Uri data) {
         this.data = data;
         return this;
     }
@@ -178,6 +181,47 @@ public class GActivityBuilder implements Parcelable {
         this.exitAnim = exitAnim;
         return this;
     }
+
+    /**
+     * 从右边往左边滑出界面，属于常规的进入方式，参考iOS的默认效果
+     * 对应 {@linkplain GActivityUtils#finishAsRightOut(Activity)}
+     */
+    public GActivityBuilder asRightIn() {
+        return overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
+    }
+
+    /**
+     * 从底部弹出界面
+     * 对应 {@linkplain GActivityUtils#finishAsBottomOut(Activity)}
+     */
+    public GActivityBuilder asBottomIn() {
+        return overridePendingTransition(R.anim.activity_bottom_to_top_enter, R.anim.activity_bottom_to_top_exit);
+    }
+
+    /**
+     * 从顶部下滑界面
+     * 对应 {@linkplain GActivityUtils#finishAsTopOut(Activity)}
+     */
+    public GActivityBuilder asTopIn() {
+        return overridePendingTransition(R.anim.activity_top_to_bottom_enter, R.anim.activity_top_to_bottom_exit);
+    }
+
+    /**
+     * 从左边往右滑出界面
+     * 对应 {@linkplain GActivityUtils#finishAsLeftOut(Activity)}
+     */
+    public GActivityBuilder asLeftIn() {
+        return overridePendingTransition(R.anim.activity_left_to_right_enter, R.anim.activity_left_to_right_exit);
+    }
+
+    /**
+     * 淡入
+     * 对应 {@linkplain GActivityUtils#finishAsFadeOut(Activity)}
+     */
+    public GActivityBuilder asFadeIn() {
+        return overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+
 
     public Result startForResult(Activity activity, int requestCode) {
         ActivityRequest request = getActivityRequest();

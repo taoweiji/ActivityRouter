@@ -4,7 +4,7 @@ buildscript {
     ext.kotlin_version = '1.3.41'
 
     repositories {
-        maven { url uri('./repo') }
+//        maven { url uri('./repo') }
 //        maven { url 'https://dl.bintray.com/grouter/maven' }
         jcenter()
         google()
@@ -15,7 +15,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.5.0'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.41"
-        classpath 'com.grouter:grouter-gradle-plugin:0.2.0'
+        classpath 'com.grouter:grouter-gradle-plugin:1.0.0'
 //        classpath 'com.grouter:grouter-gradle-plugin:0.0.3'
         classpath 'com.novoda:bintray-release:0.9.1'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
@@ -34,7 +34,7 @@ allprojects {
 
         jcenter()
         google()
-        maven { url uri('./repo') }
+//        maven { url uri('./repo') }
 //        maven { url 'https://dl.bintray.com/grouter/maven' }
     }
 }

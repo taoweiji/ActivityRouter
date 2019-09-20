@@ -7,6 +7,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.grouter.GActivityBuilder
 import com.grouter.GActivityCenter
+import com.grouter.GActivityUtils
 
 import com.grouter.RouterActivity
 import com.grouter.demo.R
@@ -28,11 +29,11 @@ class OverridePendingTransitionTargetActivity : AppCompatActivity(), AdapterView
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         when (position) {
-            0 -> GActivityBuilder.finishAsRightOut(this)
-            1 -> GActivityBuilder.finishAsLeftOut(this)
-            2 -> GActivityBuilder.finishAsTopOut(this)
-            3 -> GActivityBuilder.finishAsBottomOut(this)
-            4 -> GActivityBuilder.finishAsFadeOut(this)
+            0 -> GActivityUtils.finishAsRightOut(this)
+            1 -> GActivityUtils.finishAsLeftOut(this)
+            2 -> GActivityUtils.finishAsTopOut(this)
+            3 -> GActivityUtils.finishAsBottomOut(this)
+            4 -> GActivityUtils.finishAsFadeOut(this)
         }
     }
 }

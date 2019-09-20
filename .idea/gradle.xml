@@ -8,15 +8,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/example" />
-            <option value="$PROJECT_DIR$/example/app" />
-            <option value="$PROJECT_DIR$/example/app-shell" />
-            <option value="$PROJECT_DIR$/example/app-shell/shell-base" />
-            <option value="$PROJECT_DIR$/example/app-shell/shell-webview" />
-            <option value="$PROJECT_DIR$/example/base" />
-            <option value="$PROJECT_DIR$/example/travel" />
-            <option value="$PROJECT_DIR$/example/waimai" />
-            <option value="$PROJECT_DIR$/example/webview" />
             <option value="$PROJECT_DIR$/grouter" />
             <option value="$PROJECT_DIR$/grouter-androidx" />
             <option value="$PROJECT_DIR$/grouter-annotation" />

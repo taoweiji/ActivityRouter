@@ -50,7 +50,7 @@ public class GActivityUtils {
         if (!activity.isFinishing()){
             activity.finish();
         }
-        activity.overridePendingTransition(R.anim.activity_top_to_bottom_enter,R.anim.activity_top_to_bottom_exit);
+        activity.overridePendingTransition(0,R.anim.activity_top_to_bottom_exit);
     }
 
     /**
@@ -61,7 +61,7 @@ public class GActivityUtils {
         if (!activity.isFinishing()){
             activity.finish();
         }
-        activity.overridePendingTransition(R.anim.activity_bottom_to_top_enter,R.anim.activity_bottom_to_top_exit);
+        activity.overridePendingTransition(0,R.anim.activity_bottom_to_top_exit);
     }
 
 

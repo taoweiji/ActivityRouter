@@ -3,7 +3,7 @@ include ':grouter', ':grouter-kotlinextensions',
         ':grouter-annotation',
         ':grouter-gradle-plugin'
 
-apply from: "example/example.gradle"
+//apply from: "example/example.gradle"
 
 //include ':grouter-kotlin', ':grouter-flutter'
 include ':grouter-androidx'

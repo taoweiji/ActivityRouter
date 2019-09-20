@@ -195,7 +195,7 @@ public class GActivityBuilder implements Parcelable {
      * 对应 {@linkplain GActivityUtils#finishAsBottomOut(Activity)}
      */
     public GActivityBuilder asBottomIn() {
-        return overridePendingTransition(R.anim.activity_bottom_to_top_enter, R.anim.activity_bottom_to_top_exit);
+        return overridePendingTransition(R.anim.activity_bottom_to_top_enter, R.anim.no_anim);
     }
 
     /**
@@ -203,7 +203,7 @@ public class GActivityBuilder implements Parcelable {
      * 对应 {@linkplain GActivityUtils#finishAsTopOut(Activity)}
      */
     public GActivityBuilder asTopIn() {
-        return overridePendingTransition(R.anim.activity_top_to_bottom_enter, R.anim.activity_top_to_bottom_exit);
+        return overridePendingTransition(R.anim.activity_top_to_bottom_enter, R.anim.no_anim);
     }
 
     /**

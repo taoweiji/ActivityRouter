@@ -58,7 +58,7 @@ void copy(File file, File target) {
 //        text = text.replace("android.support.annotation.NonNull", "androidx.annotation.NonNull")
 //        text = text.replace("android.support.annotation.Nullable", "androidx.annotation.Nullable")
         text = text.replace("android.support.annotation", "androidx.annotation")
-        text = text.replace("android.support.annotation.IdRes", "androidx.annotation.IdRes")
+//        text = text.replace("android.support.annotation.IdRes", "androidx.annotation.IdRes")
     }
     if (!target.parentFile.exists()) {
         target.parentFile.mkdirs()

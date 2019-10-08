@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -156,8 +157,8 @@ public abstract class GRouter {
     public GActivityBuilder.Result startActivity(Context context, String url) {
         try {
             Uri uri = Uri.parse(url);
-            if (TextUtils.isEmpty(uri.getScheme())){
-                throw new URISyntaxException(url,"URL lack scheme（eg: grouter://xxx/xxx）");
+            if (TextUtils.isEmpty(uri.getScheme())) {
+                throw new URISyntaxException(url, "URL lack scheme（eg: grouter://xxx/xxx）");
             }
             return activityBuilder(uri).start(context);
         } catch (Exception e) {
@@ -166,11 +167,28 @@ public abstract class GRouter {
         return new GActivityBuilder.Result(false);
     }
 
-    public GActivityBuilder.Result startActivity(Fragment fragment, String url) {
+    public GActivityBuilder.Result startActivity(Activity activity, String url, @Nullable Bundle options) {
         try {
             Uri uri = Uri.parse(url);
-            if (TextUtils.isEmpty(uri.getScheme())){
-                throw new URISyntaxException(url,"URL lack scheme（eg: grouter://xxx/xxx）");
+            if (TextUtils.isEmpty(uri.getScheme())) {
+                throw new URISyntaxException(url, "URL lack scheme（eg: grouter://xxx/xxx）");
+            }
+            return activityBuilder(uri).start(activity, options);
+        } catch (Exception e) {
+            LoggerUtils.handleException(e);
+        }
+        return new GActivityBuilder.Result(false);
+    }
+
+    public GActivityBuilder.Result startActivity(Fragment fragment, String url) {
+        return startActivity(fragment, url, null);
+    }
+
+    public GActivityBuilder.Result startActivity(Fragment fragment, String url, @Nullable Bundle options) {
+        try {
+            Uri uri = Uri.parse(url);
+            if (TextUtils.isEmpty(uri.getScheme())) {
+                throw new URISyntaxException(url, "URL lack scheme（eg: grouter://xxx/xxx）");
             }
             return activityBuilder(uri).start(fragment.getActivity());
         } catch (Exception e) {
@@ -189,12 +207,16 @@ public abstract class GRouter {
      * @return 是否成功跳转
      */
     public GActivityBuilder.Result startActivityForResult(Activity activity, String url, int requestCode) {
+        return startActivityForResult(activity, url, requestCode, null);
+    }
+
+    public GActivityBuilder.Result startActivityForResult(Activity activity, String url, int requestCode, @Nullable Bundle options) {
         try {
             Uri uri = Uri.parse(url);
-            if (TextUtils.isEmpty(uri.getScheme())){
-                throw new URISyntaxException(url,"URL lack scheme（eg: grouter://xxx/xxx）");
+            if (TextUtils.isEmpty(uri.getScheme())) {
+                throw new URISyntaxException(url, "URL lack scheme（eg: grouter://xxx/xxx）");
             }
-            return activityBuilder(uri).startForResult(activity, requestCode);
+            return activityBuilder(uri).startForResult(activity, requestCode, options);
         } catch (Exception e) {
             LoggerUtils.handleException(e);
         }
@@ -210,12 +232,16 @@ public abstract class GRouter {
      * @return 是否成功跳转
      */
     public GActivityBuilder.Result startActivityForResult(Fragment fragment, String url, int requestCode) {
+        return startActivityForResult(fragment, url, requestCode, null);
+    }
+
+    public GActivityBuilder.Result startActivityForResult(Fragment fragment, String url, int requestCode, @Nullable Bundle options) {
         try {
             Uri uri = Uri.parse(url);
-            if (TextUtils.isEmpty(uri.getScheme())){
-                throw new URISyntaxException(url,"URL lack scheme（eg: grouter://xxx/xxx）");
+            if (TextUtils.isEmpty(uri.getScheme())) {
+                throw new URISyntaxException(url, "URL lack scheme（eg: grouter://xxx/xxx）");
             }
-            return activityBuilder(uri).startForResult(fragment, requestCode);
+            return activityBuilder(uri).startForResult(fragment, requestCode, options);
         } catch (Exception e) {
             LoggerUtils.handleException(e);
         }
@@ -241,8 +267,8 @@ public abstract class GRouter {
         if (nextNavString != null && nextNavString.length() > 0) {
             try {
                 Uri nextNavUri = Uri.parse(nextNavString);
-                if (TextUtils.isEmpty(nextNavUri.getScheme())){
-                    throw new URISyntaxException(nextNavString,"URL lack scheme（eg: grouter://xxx/xxx）");
+                if (TextUtils.isEmpty(nextNavUri.getScheme())) {
+                    throw new URISyntaxException(nextNavString, "URL lack scheme（eg: grouter://xxx/xxx）");
                 }
                 return new GActivityBuilder(cls, uri).nextNav(activityBuilder(nextNavUri));
             } catch (Exception e) {
@@ -413,7 +439,8 @@ public abstract class GRouter {
         }
         return new GRouterTaskBuilder(clazzName, uri);
     }
-    public GRouterTaskBuilder taskBuilder(String scheme,String path) {
+
+    public GRouterTaskBuilder taskBuilder(String scheme, String path) {
         Uri uri = new Uri.Builder().scheme(scheme).authority("task").path(path).build();
         return taskBuilder(uri.toString());
     }
@@ -432,7 +459,7 @@ public abstract class GRouter {
     /**
      * 传入协议名称
      */
-    public <T> T getComponent(String path,Class<T> protocol) {
+    public <T> T getComponent(String path, Class<T> protocol) {
         String clazzName = getComponentClassString(path);
         if (clazzName == null) {
             return null;

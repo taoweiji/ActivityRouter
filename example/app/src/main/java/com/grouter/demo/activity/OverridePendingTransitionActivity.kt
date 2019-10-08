@@ -29,11 +29,11 @@ class OverridePendingTransitionActivity : AppCompatActivity(), AdapterView.OnIte
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         val builder = GActivityCenter.OverridePendingTransitionTargetActivity()
         when (position) {
-            0 -> builder.asRightIn()
-            1 -> builder.asLeftIn()
-            2 -> builder.asTopIn()
-            3 -> builder.asBottomIn()
-            4 -> builder.asFadeIn()
+            0 -> builder.transitionRightIn()
+            1 -> builder.transitionLeftIn()
+            2 -> builder.transitionTopIn()
+            3 -> builder.transitionBottomIn()
+            4 -> builder.transitionFadeIn()
         }
         builder.start(this)
     }

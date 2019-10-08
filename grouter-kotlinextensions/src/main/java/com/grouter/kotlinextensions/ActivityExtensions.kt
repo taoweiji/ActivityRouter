@@ -7,41 +7,41 @@ import com.grouter.GActivityUtils
 
 /**
  * 从右边离开
- * 对应 [com.grouter.GActivityUtils).asRightIn]
+ * 对应 [com.grouter.GActivityUtils).transitionRightIn]
  */
 fun Activity.finishAsRightOut() {
-    GActivityUtils.finishAsRightOut(this)
+    GActivityUtils.finishTransitionRightOut(this)
 }
 
 /**
  * 从左边离开
- * 对应 [com.grouter.GActivityUtils).asLeftIn]
+ * 对应 [com.grouter.GActivityUtils).transitionLeftIn]
  */
 fun Activity.finishAsLeftOut() {
-    GActivityUtils.finishAsLeftOut(this)
+    GActivityUtils.finishTransitionLeftOut(this)
 }
 
 /**
  * 从底部离开
- * 对应 [com.grouter.GActivityUtils).asBottomIn]
+ * 对应 [com.grouter.GActivityUtils).transitionBottomIn]
  */
 fun Activity.finishAsBottomOut() {
-    GActivityUtils.finishAsBottomOut(this)
+    GActivityUtils.finishTransitionBottomOut(this)
 }
 
 /**
  * 从顶部离开
- * 对应 [com.grouter.GActivityUtils).asTopIn]
+ * 对应 [com.grouter.GActivityUtils).transitionTopIn]
  */
 fun Activity.finishAsTopOut() {
-    GActivityUtils.finishAsTopOut(this)
+    GActivityUtils.finishTransitionTopOut(this)
 }
 
 
 /**
  * 淡出
- * 对应 [com.grouter.GActivityUtils).asFadeIn]
+ * 对应 [com.grouter.GActivityUtils).transitionFadeIn]
  */
 fun Activity.finishAsFadeOut() {
-    GActivityUtils.finishAsFadeOut(this)
+    GActivityUtils.finishTransitionFadeOut(this)
 }

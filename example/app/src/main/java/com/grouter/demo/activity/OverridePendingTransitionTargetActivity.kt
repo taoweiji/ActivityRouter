@@ -3,8 +3,10 @@ package com.grouter.demo.activity
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ProgressBar
 import com.grouter.GActivityBuilder
 import com.grouter.GActivityCenter
 import com.grouter.GActivityUtils
@@ -25,15 +27,16 @@ class OverridePendingTransitionTargetActivity : AppCompatActivity(), AdapterView
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, data)
         list_view.adapter = adapter
         list_view.onItemClickListener = this
+        
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         when (position) {
-            0 -> GActivityUtils.finishAsRightOut(this)
-            1 -> GActivityUtils.finishAsLeftOut(this)
-            2 -> GActivityUtils.finishAsTopOut(this)
-            3 -> GActivityUtils.finishAsBottomOut(this)
-            4 -> GActivityUtils.finishAsFadeOut(this)
+            0 -> GActivityUtils.finishTransitionRightOut(this)
+            1 -> GActivityUtils.finishTransitionLeftOut(this)
+            2 -> GActivityUtils.finishTransitionTopOut(this)
+            3 -> GActivityUtils.finishTransitionBottomOut(this)
+            4 -> GActivityUtils.finishTransitionFadeOut(this)
         }
     }
 }

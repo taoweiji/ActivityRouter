@@ -18,6 +18,9 @@ public abstract class GRouterLogger {
 
         @Override
         public void logger(@NonNull String tag, @NonNull String message, @Nullable Throwable throwable) {
+            if (throwable != null && throwable.getMessage() != null){
+                message += ",case " + throwable.getMessage();
+            }
             Log.e(tag, message);
         }
     };

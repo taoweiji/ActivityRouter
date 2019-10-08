@@ -185,7 +185,7 @@ class GRouterPlugin implements Plugin<Project> {
             println("开发模式，不自动增加依赖")
             return
         }
-        def version = "1.1.2"
+        def version = "1.2.1"
         project.dependencies {
             if (GROUTER_ANDROIDX) {
                 api "com.grouter:grouter-androidx:$version"

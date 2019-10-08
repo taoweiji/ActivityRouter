@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.grouter.*
+import com.grouter.demo.activity.UserActivity
 
 import com.grouter.demo.base.model.User
 import com.grouter.demo.delegate.UserViewModel
@@ -84,7 +85,11 @@ class MainActivity : AppCompatActivity() {
 //        val userCpoy = response.value(UserCopy::class.java)
 //        Log.e("userCpoy", userCpoy!!.name)
 
-        GRouter.getInstance().startActivity(this,"www.baidu.com")
+//        GRouter.getInstance().startActivity(this,"www.baidu.com")
+
+//        startActivity(Intent(this,SecondActivity::class.java))
+//        overridePendingTransition(enterAnim, exitAnim)
+
 //
 //        val user = response.value as User?
 //        val userId = response.map["uid"]

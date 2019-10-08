@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 import com.grouter.core.R;
@@ -183,47 +185,51 @@ public class GActivityBuilder implements Parcelable {
     }
 
     /**
-     * 从右边往左边滑出界面，属于常规的进入方式，参考iOS的默认效果
-     * 对应 {@linkplain GActivityUtils#finishAsRightOut(Activity)}
+     * 从右边往左边滑出界面，参考iOS的默认效果
+     * 对应 {@linkplain GActivityUtils#finishTransitionRightOut(Activity)}
      */
-    public GActivityBuilder asRightIn() {
+    public GActivityBuilder transitionRightIn() {
         return overridePendingTransition(R.anim.activity_right_to_left_enter, R.anim.activity_right_to_left_exit);
     }
 
     /**
      * 从底部弹出界面
-     * 对应 {@linkplain GActivityUtils#finishAsBottomOut(Activity)}
+     * 对应 {@linkplain GActivityUtils#finishTransitionBottomOut(Activity)}
      */
-    public GActivityBuilder asBottomIn() {
+    public GActivityBuilder transitionBottomIn() {
         return overridePendingTransition(R.anim.activity_bottom_to_top_enter, R.anim.no_anim);
     }
 
     /**
      * 从顶部下滑界面
-     * 对应 {@linkplain GActivityUtils#finishAsTopOut(Activity)}
+     * 对应 {@linkplain GActivityUtils#finishTransitionTopOut(Activity)}
      */
-    public GActivityBuilder asTopIn() {
+    public GActivityBuilder transitionTopIn() {
         return overridePendingTransition(R.anim.activity_top_to_bottom_enter, R.anim.no_anim);
     }
 
     /**
      * 从左边往右滑出界面
-     * 对应 {@linkplain GActivityUtils#finishAsLeftOut(Activity)}
+     * 对应 {@linkplain GActivityUtils#finishTransitionLeftOut(Activity)}
      */
-    public GActivityBuilder asLeftIn() {
+    public GActivityBuilder transitionLeftIn() {
         return overridePendingTransition(R.anim.activity_left_to_right_enter, R.anim.activity_left_to_right_exit);
     }
 
     /**
      * 淡入
-     * 对应 {@linkplain GActivityUtils#finishAsFadeOut(Activity)}
+     * 对应 {@linkplain GActivityUtils#finishTransitionFadeOut(Activity)}
      */
-    public GActivityBuilder asFadeIn() {
+    public GActivityBuilder transitionFadeIn() {
         return overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
 
     public Result startForResult(Activity activity, int requestCode) {
+        return startForResult(activity, requestCode, null);
+    }
+
+    public Result startForResult(Activity activity, int requestCode, @Nullable Bundle options) {
         ActivityRequest request = getActivityRequest();
         request.setContext(activity);
         request.setRequestCode(requestCode);
@@ -231,8 +237,12 @@ public class GActivityBuilder implements Parcelable {
             if (InterceptorUtils.processActivity(request).isInterrupt()) {
                 return new Result(request, false);
             }
-            activity.startActivityForResult(request.getIntent().addFlags(flags), requestCode);
-            if (enterAnim != 0) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                activity.startActivityForResult(request.getIntent().addFlags(flags), requestCode, options);
+            }else {
+                activity.startActivityForResult(request.getIntent().addFlags(flags), requestCode);
+            }
+            if (enterAnim != 0 || exitAnim != 0) {
                 activity.overridePendingTransition(enterAnim, exitAnim);
             }
             return new Result(request, true);
@@ -243,6 +253,10 @@ public class GActivityBuilder implements Parcelable {
     }
 
     public Result startForResult(Fragment fragment, int requestCode) {
+        return startForResult(fragment, requestCode, null);
+    }
+
+    public Result startForResult(Fragment fragment, int requestCode, @Nullable Bundle options) {
         if (fragment.getActivity() == null) {
             LoggerUtils.handleException(new NullPointerException("fragment.getActivity() == null"));
             return new Result(false);
@@ -255,7 +269,7 @@ public class GActivityBuilder implements Parcelable {
             if (InterceptorUtils.processActivity(request).isInterrupt()) {
                 return new Result(request, false);
             }
-            fragment.startActivityForResult(request.getIntent().addFlags(flags), requestCode);
+            fragment.startActivityForResult(request.getIntent().addFlags(flags), requestCode, options);
             if (enterAnim != 0) {
                 fragment.getActivity().overridePendingTransition(enterAnim, exitAnim);
             }
@@ -267,11 +281,19 @@ public class GActivityBuilder implements Parcelable {
     }
 
     public Result start(Fragment fragment) {
-        return startForResult(fragment, -1);
+        return start(fragment, null);
+    }
+
+    public Result start(Fragment fragment, @Nullable Bundle options) {
+        return startForResult(fragment, -1, options);
     }
 
     public Result start(Activity activity) {
-        return startForResult(activity, -1);
+        return start(activity, null);
+    }
+
+    public Result start(Activity activity, @Nullable Bundle options) {
+        return startForResult(activity, -1, options);
     }
 
     public Result start(Context context) {

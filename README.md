@@ -20,7 +20,8 @@ GRouter 兼容拼接参数方式同时，区别于其他组件化方案推出了
 10. 提供 [IDEA 插件](https://github.com/taoweiji/grouter-android/wiki#IDEA插件)，支持快捷跳转到目标类，支持 Java 和 Kotlin。
 11. 使用Gradle插件注册Module模块，简化配置。
 13. RouterComponent支持获取Fragment。
-13. 支持从外部浏览器和[其它APP打开内部Activity](https://github.com/taoweiji/grouter-android/wiki/RouterActivity-详解#支持外部app浏览器打开内部-activity)。
+14. 支持从外部浏览器和[其它APP打开内部Activity](https://github.com/taoweiji/grouter-android/wiki/RouterActivity-详解#支持外部app浏览器打开内部-activity)。
+15. 内置5组页面Activity过场动画，并支持5.0的Activity过场动画。
 
  
 
